@@ -1,0 +1,17 @@
+server:
+  port: 8700
+---
+spring:
+  application.name: client-foo
+  profiles.active: dev
+---
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+  metrics:
+    enabled: true
+  refresh:
+    enabled: true
+---
+management.security.enabled: false

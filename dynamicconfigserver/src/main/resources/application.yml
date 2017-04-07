@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+management.security.enabled: false
+
+spring:
+  profiles.active: spring-bus
+  cloud:
+    bus:
+      enabled: true
+    rabbitmq:
+      host: 127.0.0.1
+      port: 5672
+      user: guest
+      password: guest
