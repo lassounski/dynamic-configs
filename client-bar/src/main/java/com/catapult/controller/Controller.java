@@ -14,24 +14,28 @@ import java.util.Map;
 @RefreshScope
 public class Controller {
 
-    @Value("${name}")
+    @Value("${name:Default}")
     private String name;
 
-    @Value("${account}")
-    private String account;
-
-    @Value("${env}")
+    @Value("${env:Default}")
     private String env;
 
-    @Value("${com.client.bar}")
-    private String bar;
+    @Value("${common-var:Default}")
+    private String common;
+
+    @Value("${com.client.bar:Default}")
+    private String specific;
+
+    @Value("${account:Default}")
+    private int account;
 
     @RequestMapping(value = "/props", produces = "application/json")
     public Map message() {
         return ImmutableMap.builder()
-                .put("env",env)
-                .put("name",name)
-                .put("bar",bar)
-                .put("account",account).build();
+                .put("Application",name)
+                .put("Environment",env)
+                .put("com.client.bar", specific)
+                .put("Common-var", common)
+                .put("Account",account).build();
     }
 }

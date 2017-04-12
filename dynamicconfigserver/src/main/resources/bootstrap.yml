@@ -7,3 +7,16 @@ spring:
       server:
         git:
           uri: https://github.com/klassounski-daitan/dynamic-configs
+          searchPaths: '{application}'
+          force-pull: true
+---
+spring:
+  profiles: local-git
+  application:
+      name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${user.home}/projects/spring-cloud-config-poc/dynamic-configs
+          searchPaths: '{application}'
